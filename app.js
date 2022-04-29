@@ -1,6 +1,6 @@
 const form = document.querySelector('.form-quizz');
 let tableauResultats = [];
-const reponses = ['a', 'b', 'c', 'a', 'b'];
+const reponses = ['a', 'c', 'c', 'a', 'b'];
 const emojis = ['🤑', '🪙', '😐', '🤧', '🥶'];
 const titreResultat = document.querySelector('.resultats h2');
 const noteResultat = document.querySelector('.note');
@@ -26,8 +26,9 @@ function verifTab(tabResultats) {
             verifTableau.push(false);
         }
     }
-    //console.log(verifTableau);
+    console.log(verifTableau);
     afficherResultat(verifTableau);
+    couleursFonction(verifTableau)
     verifTableau = [];
 }
 
@@ -71,3 +72,28 @@ function afficherResultat(tabCheck) {
 
     }
 }
+
+function couleursFonction(tabsValBool) {
+
+    for (let j = 0; j < tabsValBool.length; j++){
+
+        if (tabsValBool[j] === true) {
+            toutesLesQuestions[j].style.background = 'lightgreen';
+        }else {
+            toutesLesQuestions[j].style.background = '#ffb8b8';
+            toutesLesQuestions[j].classList.add('echec');
+
+            setTimeout(() => {
+                toutesLesQuestions[j].classList.remove('echec');
+            },500)
+        }
+
+    }
+
+}
+
+toutesLesQuestions.forEach(item => {
+    item.addEventListener('click', () => {
+        item.style.background = "white";
+    })
+})
