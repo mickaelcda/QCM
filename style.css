@@ -75,7 +75,7 @@ form button:hover {
     background-color: lightblue;
 }
 .echec {
-    animation: echec 0.2 ease-in-out;
+    animation: echec 0.3s ease-in-out;
 }
 
 @keyframes echec {
